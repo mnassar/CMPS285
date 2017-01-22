@@ -4,6 +4,24 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=1024, user-scalable=no">
+	<style>
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+		span.ilcode {width: 20px; background-color: black; margin: 0 5px; padding: 0 5px}
+	</style>
 
 	<title>CMPS285</title>
 
@@ -17,6 +35,8 @@
 	<link rel="stylesheet" media="screen" href="deck.js/extensions/status/deck.status.css">
 	<link rel="stylesheet" media="screen" href="deck.js/extensions/scale/deck.scale.css">
 
+	
+
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
 	<link rel="stylesheet" media="screen" href="deck.js/themes/style/web-2.0.css">
 
@@ -28,6 +48,10 @@
 
 	<!-- Required Modernizr file -->
 	<script src="deck.js/modernizr.custom.js"></script>
+
+	
+
+	
 </head>
 <body>
 	<div class="deck-container">
@@ -57,7 +81,7 @@
 				Office hours:
 			</p>
 			<p>
-				WF 10:30-11:30, or by appointment 
+				MW 10:30-12:00, or by appointment 
 			</p>
 			<p>
 				Mail:
@@ -67,7 +91,18 @@
 			</p>
 		</section>
 
+		<section class="slide">
+			<h2>This course</h2>
+			<p>
+				This course is an introduction to the fundamentals of the field of computer graphics. These fundamentals have not changed much in the past few decades. 
 
+				Although the fundamentals of computer graphics have not changed much in the past few decades,
+				many aspects of computer graphics have changed. Graphics cards (GPUs) in particular have become
+				very powerful and many software tools have become available for taking full advantage of this power.
+				To work as a software developer in the computer graphics industry today, you would need to learn
+				at least the basics of these tools. 
+			</p>
+		</section>
 		<section class="slide">
 			<h2>Goals of the class</h2>
 			<p>
@@ -97,104 +132,303 @@
 				<h2>Texts and references</h2>
 				<p>
 					<a href="https://www.cs.cornell.edu/~srm/fcg3/">
-						Fundamentals of Computer Graphics, Third Edition
+						<em>Fundamentals of Computer Graphics, Third Edition</em>
 					</a>
 					By Steve Marschner and Peter Shirley
 				</p>
 				<p>
 					<a href="http://www.cim.mcgill.ca/~langer/557.html">
-						Michael Langer's course on computer graphics
+						<em>Michael Langer's course on computer graphics</em>
 					</a><br>
 				</p>
 				<p>
 					<a href="https://www.cs.unm.edu/~angel/BOOK/INTERACTIVE_COMPUTER_GRAPHICS/SEVENTH_EDITION/">
-						Interactive Computer Graphics
-						A Top-Down Approach with WebGL
-					</a><br>
-					by Edward Angel and Dave Shreiner
+						<em>Interactive Computer Graphics
+							A Top-Down Approach with WebGL</em>
+						</a><br>
+						by Edward Angel and Dave Shreiner
 
-				</p>
-				<p>
-					<a href="http://mathcs.pugetsound.edu/~tmullen/classes/f16-CS315-cg/">
-						<em> Tony Mullen's course on computer graphics </em>
-					</a><br>
-				</p>
-				<p>
-					<a href="https://www.amazon.com/Learning-Three-js-JavaScript-Library-Second/dp/1784392219">
-						<em>Learning Three.js: The JavaScript 3D Library for WebGL - Second Edition</em>
-					</a><br>
-					by Jos Dirksen
-				</p>
-				<p>
-					<a href="https://www.amazon.com/dp/1568817231">
-						<em>3D Math Primer for Graphics and Game Development, 2nd Edition</em>
-					</a><br>
-					by Fletcher Dunn and Ian Parberry
-				</p>
-			</section>
+					</p>
+					<p>
+						<a href="http://mathcs.pugetsound.edu/~tmullen/classes/f16-CS315-cg/">
+							<em> Tony Mullen's course on computer graphics </em>
+						</a><br>
+					</p>
+					<p>
+						<a href="https://www.amazon.com/Learning-Three-js-JavaScript-Library-Second/dp/1784392219">
+							<em>Learning Three.js: The JavaScript 3D Library for WebGL - Second Edition</em>
+						</a><br>
+						by Jos Dirksen
+					</p>
+					<p>
+						<a href="https://www.amazon.com/dp/1568817231">
+							<em>3D Math Primer for Graphics and Game Development, 2nd Edition</em>
+						</a><br>
+						by Fletcher Dunn and Ian Parberry
+					</p>
+				</section>
 
-			<section class="slide">
-				<h2>Grading</h2>
-				<ul>
-					<li>30% Midterm
+				<section class="slide">
+					<h2>Grading</h2>
+					<ul>
+						<li>30% Midterm
+						</li>
+						<li>35% Final Exam 
+						</li>
+						<li>30% Assignments 
+						</li>
+						<li>
+							5% Attendance and Participation
+						</li>
+					</ul>
+				</section>
+
+				<section class="slide"> 
+					<h2> Introduction </h2>
+					<p>		<strong> Computer graphics</strong>, broadly defined, is a set of methods for using computers to create and manipulate images. There are many applications of computer graphics including: 
+					</p>	<ul>
+					<li> entertainment (games,
+						cinema, tv commercials and other advertising),
+					</li> 
+					<li> design (architectural, manufacturing, ...),
 					</li>
-					<li>35% Final Exam 
+					<li>visualization (medical, scientific, information),
 					</li>
-					<li>30% Assignments 
-					</li>
-					<li>
-					5% Attendance and Participation
+					<li> 	    simulation (training), and much more.
 					</li>
 				</ul>
+				<p>	
+					This course will look at methods for creating images that are defined on a rectangular pixel 
+					grid. The word pixel stands for “picture element”. The coordinates of the grid are integers. For
+					example, typical high definition images are 1920 × 1080.
+				</p>
 			</section>
 
+			
+			<section class="slide">
+				<iframe src="iframes/teapot.html" frameborder="0"
+				onload="this.width=0.8*screen.width;this.height=0.8*screen.height;" ></iframe>
+			</section>
 
+			<section class="slide"> 
+				<h2> A bit of history </h2>
+				<p>
+					Up to the early 1990’s, it was relatively cumbersome to write graphics software. The standards
+					for graphics software were limited and typically one would code up an algorithm from scratch. 
+					Although many companies had developed specialized graphics hardware (GPU’s – graphical processing
+					units), this hardware was difficult to use since it often required assembly language programming.
+					New algorithms were typically implemented to run on the CPU, rather than GPU, and as a result
+					they tended to be slow and impractical for typical users.
+				</p>
+				<p>
+					One of the big graphics companies at that time (SGI) built and sold workstations that were
+					specialized for graphics. SGI developed an API called GL which had many libraries of common
+					graphics routines. In 1992 SGI released a standard API called OpenGL which other hardware
+					vendors could use as well.
+					Microsoft followed with the  <a href=http://en.wikipedia.
+					org/wiki/DirectX>DirectX</a> API shortly thereafter. DirectX is used in the ”X Box”. DirectX competes with OpenGL and has 				remained popular among many users especially those who work with Microsoft software.
+				</p>
+			</section>
+			<section class="slide">
+				<h2> OpenGL vs. WebGL </h2> 
+				<p>
+					OpenGL 1.0 is said to have a fixed function pipeline. "Fixed function" means that the library
+					offers a limited fixed set of functions. You cannot go beyond that library. You cannot program the
+					graphics hardware to do anything other than what OpenGL offers.
+					Graphics card technology improved steadily from the mid 1990’s and beyond the emergence of
+					industry leaders NVIDIA, ATI (now part of AMD) and Intel. However, to program a graphics card
+					(GPU) to make the most use of its enormous processing potential, one still had to write code that
+					was at the assembly language level. This was relatively difficult and not much fun for most people.
+					In 2004, OpenGL 2.0 was released which allowed access to the graphics card using a high level
+					C-like language called the OpenGL Shading Language (GLSL). Other ”shading languages” have
+					been developed since then, and more recent versions of OpenGL have been released as well. 
 
+					The most recent trend is WebGL (released in 2011) which is an API specific for graphics in web
+					browsers. Google maps uses WebGL for example. There is a growing trend to introduce WebGL in
+					”intro to graphics” courses. 
+				</p>
+			</section>
+			<section class="slide"> 
+				<h2> Three.js </h2>
+				<p>
+					Three.js is a program using WebGL and a developer’s library. WebGL is an Application Program Interface - “API” for short - that controls the GPU. It is based on OpenGL ES, an API used in mobile devices, which in turn is based on OpenGL, an API for desktop computers that dates back to 1992.
+				</p>
+				<p>
+					WebGL is a state-based API: you set up exactly how you want the GPU to do something, then send it geometry to render under these conditions. This gives a pretty fine-grained control over the GPU, but can result in hundreds of lines of code to draw even the simplest scenes. This is why we’ll be using three.js, a free development library with many useful features. Just a few lines of code can create objects with materials, set up lighting and a camera, and even perform animation.
+				</p>
+			</section>
+			<section class="slide" font-size: smaller>
+				<h2> Colors </h2>
+				<p>
+					The color of a pixel is defined by three numbers called RGB. These are the intensities of the
+					red, green, and blue components. Typical images have 8 bits for each RGB value and hence 24 bits
+					of intensity information per pixel i.e. values from 0 to 255. Here are some examples of colors:
+				</p>
+				<table border=10px >
+					<tr> <td> (0,0,0)</td> <td> black </td> </tr>
+					<tr> <td> (255,255,255)</td> <td> white</td> </tr>
+					<tr> <td> (255,0,0)</td> <td>red </td></tr>
+					<tr> <td> (0, 0, 255)</td> <td>green </td></tr>
+					<tr> <td> (0, 255, 0)</td> <td>blue </td></tr>
+					<tr> <td> (255,255,0)</td> <td>yellow (red + green)</td> </tr>
+					<tr> <td> (255,0,255)</td> <td>magenta (red + blue)</td> </tr>
+					<tr> <td> (0,255,255)</td> <td>cyan (green + blue)</td> </tr>
+				</table>
+				<br/>
+				<p>
+					RGB space defines a cube: 
 
-			<!-- End slides. -->
+					<span class="latex">\{0, . . . , 255\}\times\{0, . . . , 255\}\times\{0, . . . , 255\}</span>. 
+				</p>
+				<p>
+					The above list of colors define
+					the corners of the cube. There are many other colors (<span class="latex">256 \times 256 \times 256 = 2^24</span> ) with exotic names.</p>
+					<p>
+						You can amuse yourselves by having a look here:
+						<a href="http://www.w3schools.com/tags/ref_colornames.asp"> http://www.w3schools.com/tags/ref_colornames.asp </a>
+					</p>			
+				</section>
 
-			<!-- Begin extension snippets. Add or remove as needed. -->
+				<section class="slide">
+					<h2>Review of some basic linear algebra</h2>
+					<h3>Dot product</h3>
+					<ul>
+						<li>
+							The length of <strong> 3D vector u </strong> is: 
+							<div class="latex" align=center>
+								\left | \mathbf{u} \right | = \sqrt{u_x^2+u_y^2+u_z^2} 
+							</div>
+						</li>
+						<li>
+							The dot product (or ”scalar product”) of two 3D vectors <strong>u</strong> and <strong>v</strong> is defined to be:
+							<div class="latex" align=center>
+								\mathbf{u}.\mathbf{v}  = u_x.v_x+u_y.v_y+u_z.v_z 
+							</div>
+						</li>
+						<li>
+							A more geometric way to define the dot product is to let θ be the angle between these two
+							vectors, namely within the 2D plane spanned by the vectors. Then
+							<div class="latex" align=center>
+								\mathbf{u}.\mathbf{v}  = \left | \mathbf{u} \right | . \left | \mathbf{v} \right | \cos(\theta) 
+							</div>
+						</li>
+					</ul>
+					<p>
+						It may not be obvious why these two definitions are equivalent, in general. The way I think
+						of it is this. Take the case that the vectors already lie in a plane, say the xy plane. Suppose <strong>u </strong>
+						= (1,0,0) and <strong> v </strong>= (cos θ, sin θ, 0). In this case, it is easy to see that the two definitions of dot
+						product given above are equal. As an exercise: why does this equivalence holds in general?
+					</p>
+				</section>
+				<section class="slide">
+					<h2>Review of some basic linear algebra</h2>
+					<h3>Cross product</h3>
+					<p>The cross product of two 3D vectors <strong>u</strong> and <strong>v</strong> is written <strong>u × v</strong>. The cross product is a 3D vector that is perpendicular to both <strong>u</strong> and <strong>v</strong>, and hence to the plane spanned by <strong>u</strong> and <strong>v</strong> in the case that these two vectors are not parallel.
+						Given two vectors <strong>u</strong> and <strong>v</strong>, the cross product <strong>u × v </strong>is usually defined by taking the 2D determinants of ”co-factor” matrices:
+					</p>
+					<div class="latex" align=center>
+						\mathbf{u} \times \mathbf{v} = \begin{bmatrix}
+						u_x\\ 
+						u_y\\ 
+						u_z
+						\end{bmatrix}
+						\times 
+						\begin{bmatrix}
+						v_x\\ 
+						v_y\\
+						v_z 
+						\end{bmatrix}
+						= \begin{bmatrix}
+						u_yv_z-u_zv_y\\ 
+						u_zv_x-u_xv_z\\
+						u_xv_y-u_yv_x 
+						\end{bmatrix} 
+					</div>
+					<p>
+						Exercise: find matrix M such that <strong>u × v </strong> is equal to the matrix-vector product M<strong>v</strong>. What is the rank of this matrix? 
+					</p>
+				</section>
+				<section class="slide" font-size: smaller>
+					<h2> Computing the normal of a triangle </h2>
+					<p> 
+						A key application for the cross product is to compute a vector normal to a planar surface such as
+						a triangle or more generally a polygon. 
 
-			<!-- deck.navigation snippet -->
-			<div aria-role="navigation">
-				<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-				<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+						Let the vertices
+						be <span class="latex"> \mathbf{p}_0, \mathbf{p}_1, \mathbf{p}_2</span> and assume we are looking at the triangle from a direction so that these vertices go counter-clockwise. We will define the surface normal (perpendicular) such that it points into the half space containing us (the viewer).
+					</p>
+					<p>
+						Let <span class="latex">\mathbf{e}_0</span> denote the vector <span class="latex">\mathbf{p}_1 - \mathbf{p}_0</span>, i.e. the vector from 
+						<span class="latex">\mathbf{p}_0</span> to <span class="latex">\mathbf{p}_1</span> , and let 
+						<span class="latex">\mathbf{e}_1</span> denote the vector <span class="latex">\mathbf{p}_2-\mathbf{p}_1</span> Then the outward surface normal (pointing toward the viewer) is defined
+						by: 
+						<div class="latex" align="center">
+							\mathbf{N} = \mathbf{e}_0 \times \mathbf{e}_1 
+						</div>
+					</p>
+					<p>
+						The vertex point <span class="latex"> \mathbf{p}_0  = (p_{0,x} , p_{0,y} , p_{0,z} ) </span> is in the plane containing the triangle. So the equation of the plane passing through this point can be parameterized by:
+						<div class="latex" align="center">
+							\mathbf{N} . (x - p_{0,x} , y - p_{0,y} , z - p_{0,z} ) = 0
+						</div>
+					</p>
+										<p>
+						This equation just says that, for any point <span class="latex"> (x, y, z) </span> on the plane, 
+						the vector from this point to <span class="latex"> \mathbf{p}_0 </span> is perpendicular to the surface normal.
+					</p>
+
+				</section>
+
+				<!-- End slides. -->
+
+				<!-- Begin extension snippets. Add or remove as needed. -->
+
+				<!-- deck.navigation snippet -->
+				<div aria-role="navigation">
+					<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+					<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+				</div>
+
+				<!-- deck.status snippet -->
+				<p class="deck-status" aria-role="status">
+					<span class="deck-status-current"></span>
+					/
+					<span class="deck-status-total"></span>
+				</p>
+
+				<!-- deck.goto snippet -->
+				<form action="." method="get" class="goto-form">
+					<label for="goto-slide">Go to slide:</label>
+					<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+					<datalist id="goto-datalist"></datalist>
+					<input type="submit" value="Go">
+				</form>
+
+				<!-- End extension snippets. -->
 			</div>
 
-			<!-- deck.status snippet -->
-			<p class="deck-status" aria-role="status">
-				<span class="deck-status-current"></span>
-				/
-				<span class="deck-status-total"></span>
-			</p>
+			<!-- Required JS files. -->
+			<script src="deck.js/jquery.min.js"></script>
+			<script src="deck.js/core/deck.core.js"></script>
 
-			<!-- deck.goto snippet -->
-			<form action="." method="get" class="goto-form">
-				<label for="goto-slide">Go to slide:</label>
-				<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
-				<datalist id="goto-datalist"></datalist>
-				<input type="submit" value="Go">
-			</form>
+			<!-- Extension JS files. Add or remove as needed. -->
+			<script src="deck.js/extensions/menu/deck.menu.js"></script>
+			<script src="deck.js/extensions/goto/deck.goto.js"></script>
+			<script src="deck.js/extensions/status/deck.status.js"></script>
+			<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+			<script src="deck.js/extensions/scale/deck.scale.js"></script>
+			<script src="deck.js/extensions/simplemath/deck.simplemath.js"></script>
+			<script src="deck.js/extensions/simplemath/display-latex2.user.js"></script>
 
-			<!-- End extension snippets. -->
-		</div>
 
-		<!-- Required JS files. -->
-		<script src="deck.js/jquery.min.js"></script>
-		<script src="deck.js/core/deck.core.js"></script>
 
-		<!-- Extension JS files. Add or remove as needed. -->
-		<script src="deck.js/extensions/menu/deck.menu.js"></script>
-		<script src="deck.js/extensions/goto/deck.goto.js"></script>
-		<script src="deck.js/extensions/status/deck.status.js"></script>
-		<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
-		<script src="deck.js/extensions/scale/deck.scale.js"></script>
+			<!-- Initialize the deck. You can put this in an external file if desired. -->
+			<script>
+				$(function() {
+					$.deck('.slide');
+				});
+			</script>
 
-		<!-- Initialize the deck. You can put this in an external file if desired. -->
-		<script>
-			$(function() {
-				$.deck('.slide');
-			});
-		</script>
-	</body>
-	</html>
+
+		</body>
+		</html>
